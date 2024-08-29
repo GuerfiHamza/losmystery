@@ -82,6 +82,7 @@ class JobController extends Controller
         // Get the entreprise and player from request
         $entreprise = \Auth::user()->players->getJob();
 
+        dd($entreprise->validationStringGrades());
         $request->validate([
             'poste' => 'required|in:'.$entreprise->validationStringGrades(),
             'name' => 'required|string|min:2',

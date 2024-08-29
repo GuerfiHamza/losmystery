@@ -22,6 +22,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\OrgController;
 use App\Http\Controllers\Dashboard\CarsController;
+use App\Http\Controllers\LSPD\RecordController;
+use App\Http\Controllers\LSPD\CriminalController;
 
 // Static routes
 Route::get('/',  Index::class )->name('index');
@@ -77,6 +79,7 @@ Route::middleware(['auth', 'player', 'arm'])->prefix('ppa')->group(function() {
 
 });
 
+
 // Forms
 Route::view('formulaires', 'forms')->middleware('auth')->name('forms');
 
@@ -97,6 +100,10 @@ Route::middleware(['auth', 'dashboard'])->prefix('dashboard')->name('dashboard-'
         Route::get('player/{player}/billings', [PlayerController::class, 'showBillings'])->name('player.show-billings');
         Route::get('organisation', [OrganisationController::class, 'index'])->name('organisation.index');
         Route::resource('job', DashboardJobController::class);
+        Route::post('/job/post', [DashboardJobController::class,'post'])->name('entreprise-post');
+        Route::post('/job/vehicle', [DashboardJobController::class,'vehicle'])->name('entreprise-vehicle');
+        Route::post('/job/reattribution', [DashboardJobController::class,'allReattribute'])->name('entreprise-reattribution');
+
         Route::get('jobs/search', [DashboardJobController::class, 'search'])->name('live_search');
         Route::get('organisation/search', [OrganisationController::class, 'search'])->name('org_search');
         Route::get('recherche', [PlayerController::class, 'search'])->name('recherche');
@@ -112,4 +119,8 @@ Route::middleware(['auth', 'dashboard'])->prefix('dashboard')->name('dashboard-'
         Route::resource('/forms/{fid}/submissions', \restray\FormBuilder\Controllers\SubmissionController::class);
     });
 
+});
+Route::middleware(['auth', 'player', 'lspd'])->prefix('lspd')->name('lspd-')->group(function() {
+    Route::resource('record', RecordController::class);
+    Route::resource('criminal', CriminalController::class);
 });

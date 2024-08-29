@@ -49,4 +49,6 @@ class EntrepriseController extends Controller
         'treasories' => $treasories]);
     }
 
+    
+
 }
