@@ -1,17 +1,18 @@
 @extends('dashboard.layouts.app')
 
-@section('title', 'Tous nos joueurs')
-
+@section('title')
+    {{$player->name}}
+@endsection
 @section('content')
 
     <div class="container mx-auto grid">
         <div class="grid overflow-hidden grid-cols-3 grid-rows-2 gap-2 mt-5">
-            <div class="box row-span-2 dark:bg-gray-800 bg-gray-200 px-5 py-5 rounded-xl dark:text-white  border-red border">
+            <div class="box row-span-2 dark:bg-gray-800 bg-gray-200 px-5 py-5 rounded-xl dark:text-white  border-blue-500 border">
                 <h5 class="mb-3 font-medium text-center">Carte d'identité de {{ $player->getName() }}</h5>
                 <x-id-card :name="$player->lastname" :surname="$player->firstname" :birthdate="$player->dateofbirth" :height="$player->getHeight()" :sex="$player->sex" />
             </div>
             <div
-                class="box col-start-2 col-span-2 dark:bg-gray-800 bg-gray-200 px-5 py-5 rounded-xl dark:text-white border-red border">
+                class="box col-start-2 col-span-2 dark:bg-gray-800 bg-gray-200 px-5 py-5 rounded-xl dark:text-white border-blue-500 border">
                 <div class="flex justify-between items-center">
                     <h5 class="mb-3 font-medium">Informations de {{ $player->getName() }}</h5>
                     <div class="flex justify-items-end">
@@ -20,7 +21,7 @@
                                 @csrf
                                 @method('PUT')
                                 <button type="submit"
-                                    class="px-4 py-2 text-sm font-medium leading-5 mr-5 text-white transition-colors duration-150 bg-red-600 border border-transparent rounded-lg active:bg-red-600 hover:bg-red-700 focus:outline-none focus:shadow-outline-red"
+                                    class="px-4 py-2 text-sm font-medium leading-5 mr-5 text-white transition-colors duration-150 bg-blue-600 border border-transparent rounded-lg active:bg-blue-600 hover:bg-blue-700 focus:outline-none focus:shadow-outline-blue"
                                     name="access" value="{{ !$player->getUser()->soft_permission_dashboard }}">
                                     {{ $player->getUser()->canSeeDashboard() ? 'Retirer ses droits' : 'Ajouter ses droits' }}
                                 </button>
@@ -29,7 +30,7 @@
 
                         @if (\Auth::user()->players->group == 'admin' || \Auth::user()->players->group == 'superadmin')
                             <button
-                                class="px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-red-600 border border-transparent rounded-lg active:bg-red-600 hover:bg-red-700 focus:outline-none focus:shadow-outline-red"
+                                class="px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-blue-600 border border-transparent rounded-lg active:bg-blue-600 hover:bg-blue-700 focus:outline-none focus:shadow-outline-blue"
                                 @click="openWipe">
                                 Wipe le joueur
                             </button>
@@ -41,7 +42,7 @@
                 <p class="my-5">Métier: {!! $player->job != 'unemployed' ? '<a href="' . route('dashboard-job.show', ['job' => $player->getJob()]) . '">' . $player->getJob()->label . '</a>' : 'Chomeur' !!} || Grade:
                     {{ $player->getJobGrade()->label ?? '' }}
                     ({{ $player->getJobGrade()->name ?? '' }} | {{ $player->job_grade ?? '' }}) <button @click="openJob"
-                        class="float-right px-4 py-2 text-sm font-medium leading-5 mr-5 text-white transition-colors duration-150 bg-red-600 border border-transparent rounded-lg active:bg-red-600 hover:bg-red-700 focus:outline-none focus:shadow-outline-red">
+                        class="float-right px-4 py-2 text-sm font-medium leading-5 mr-5 text-white transition-colors duration-150 bg-blue-600 border border-transparent rounded-lg active:bg-blue-600 hover:bg-blue-700 focus:outline-none focus:shadow-outline-blue">
                         Modifier son métier
                     </button>
                 </p>
@@ -49,7 +50,7 @@
                     {{ $player->getOrgGrade()->label ?? '' }}
                     ({{ $player->getOrgGrade()->name ?? '' }} | {{ $player->org_grade ?? '' }}) <button
                         @click="openOrg"
-                        class="float-right px-4 py-2 text-sm font-medium leading-5 mr-5 text-white transition-colors duration-150 bg-red-600 border border-transparent rounded-lg active:bg-red-600 hover:bg-red-700 focus:outline-none focus:shadow-outline-red">
+                        class="float-right px-4 py-2 text-sm font-medium leading-5 mr-5 text-white transition-colors duration-150 bg-blue-600 border border-transparent rounded-lg active:bg-blue-600 hover:bg-blue-700 focus:outline-none focus:shadow-outline-blue">
                         Modifier son Organisation
                     </button>
                 </p>
@@ -57,11 +58,11 @@
                
             </div>
             <div
-                class="box col-start-2 col-span-2 dark:bg-gray-800 bg-gray-200 px-5 py-5 rounded-xl dark:text-white border-red border">
+                class="box col-start-2 col-span-2 dark:bg-gray-800 bg-gray-200 px-5 py-5 rounded-xl dark:text-white border-blue-500 border">
                 <div class="flex justify-between items-center">
                     <h5 class="mb-3 font-medium text-center">Compte Bancaire de {{ $player->getName() }}</h5>
                     <a href="{{ route('dashboard-player.show-billings', compact('player')) }}"
-                        class="px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-red-600 border border-transparent rounded-lg active:bg-red-600 hover:bg-red-700 focus:outline-none focus:shadow-outline-red">Voir
+                        class="px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-blue-600 border border-transparent rounded-lg active:bg-blue-600 hover:bg-blue-700 focus:outline-none focus:shadow-outline-blue">Voir
                         tout</a>
                 </div>
                 <div class="flex justify-between items-center my-auto mt-5">
@@ -69,27 +70,27 @@
                     <p>Argent Banque: {{ number_format($player->getBank(), 2) }}$</p><br>
                     <p>Argent Sale: todo $</p><br>
                 </div><br><br>
-                <p class="text-center bg-red rounded-full px-2 py-2 text-white font-medium">Argent total:
+                <p class="text-center bg-blue-500 rounded-full px-2 py-2 text-white font-medium">Argent total:
                     {{ number_format($player->getMoney() + $player->getBank(), 2) }}$</p>
 
             </div>
-            <div class="box dark:bg-gray-800 bg-gray-200 rounded-xl dark:text-white px-5 py-5 row-span-0 border-red border">
+            <div class="box dark:bg-gray-800 bg-gray-200 rounded-xl dark:text-white px-5 py-5 row-span-0 border-blue-500 border">
                 <h5 class="mt-4">Personnage:</h5>
                 
-                {{ $player->getHunger()['name'] }} {{ number_format($player->getHunger()['percent'], 1) }}%:<div class="bg-red-600 h-1.5 rounded-full"
+                {{ $player->getHunger()['name'] }} {{ number_format($player->getHunger()['percent'], 1) }}%:<div class="bg-blue-600 h-1.5 rounded-full"
                 style="width: {{ $player->getHunger()['percent'] }}%"></div> 
                 
-                {{ $player->getThirst()['name'] }} {{ number_format($player->getThirst()['percent'], 1) }}%:<div class="bg-red-600 h-1.5 rounded-full"
+                {{ $player->getThirst()['name'] }} {{ number_format($player->getThirst()['percent'], 1) }}%:<div class="bg-blue-600 h-1.5 rounded-full"
                 style="width: {{ $player->getThirst()['percent'] }}%"></div> 
                 
-                {{ $player->getDrunk()['name'] }} {{ number_format($player->getDrunk()['percent'], 1) }}%:<div class="bg-red-600 h-1.5 rounded-full"
+                {{ $player->getDrunk()['name'] }} {{ number_format($player->getDrunk()['percent'], 1) }}%:<div class="bg-blue-600 h-1.5 rounded-full"
                 style="width: {{ $player->getDrunk()['percent'] }}%"></div>
             </div>
             
             
             
         
-            <div class="box col-start-2 col-span-2 dark:bg-gray-800 bg-gray-200 px-5 py-5 rounded-xl dark:text-white border-red border"
+            <div class="box col-start-2 col-span-2 dark:bg-gray-800 bg-gray-200 px-5 py-5 rounded-xl dark:text-white border-blue-500 border"
                 style="height:36.5rem">
 
                 <h5 class="mb-3 font-medium">Derniere position de {{ $player->getName() }}</h5>
@@ -128,13 +129,13 @@
                 @csrf
                 <div class="mt-4 mb-6">
                     <select type="text" name="job"
-                        class="mb-2 w-full dark:bg-gray-800 dark:text-white border rounded-full border-red px-3 py-1" required>
+                        class="mb-2 w-full dark:bg-gray-800 dark:text-white border rounded-full border-blue-500 px-3 py-1" required>
                         @foreach (\App\Models\FiveM\Job::All() as $job)
                             <option value="{{ $job->name }}">{{ $job->label }}</option>
                         @endforeach
                     </select>
                     <select type="text" name="job_grade"
-                        class="mb-2 w-full dark:bg-gray-800 dark:text-white border rounded-full border-red px-3 py-1" required>
+                        class="mb-2 w-full dark:bg-gray-800 dark:text-white border rounded-full border-blue-500 px-3 py-1" required>
                         @foreach (\App\Models\FiveM\JobGrade::All() as $jobgrade)
                             <option value="{{ $jobgrade->grade }}">{{ $jobgrade->job_name }}
                                 ({{ $jobgrade->label }} | {{ $jobgrade->grade }})
@@ -147,7 +148,7 @@
                 <footer
                     class="flex flex-col items-center justify-end px-6 py-3 -mx-6 -mb-4 space-y-4 sm:space-y-0 sm:space-x-6 sm:flex-row bg-gray-50 dark:bg-gray-800">
                     <button @click="closeJob" type="button"
-                        class="w-full px-5 py-3 text-sm font-medium leading-5 text-white transition-colors duration-150 border border-red-500 rounded-lg dark:text-white sm:px-4 sm:py-2 sm:w-auto bg-red-600 active:bg-red-500 hover:border-red-700 hover:bg-red-700 focus:border-red-500 active:text-red-500 focus:outline-none focus:shadow-outline-red">
+                        class="w-full px-5 py-3 text-sm font-medium leading-5 text-white transition-colors duration-150 border border-red-500 rounded-lg dark:text-white sm:px-4 sm:py-2 sm:w-auto bg-blue-600 active:bg-blue-500 hover:border-blue-500-700 hover:bg-blue-700 focus:border-blue-500-500 active:text-blue-500 focus:outline-none focus:shadow-outline-blue">
                         Annuler
                     </button>
                     <button type="submit"
@@ -186,13 +187,13 @@
                 @csrf
                 <div class="mt-4 mb-6">
                     <select type="text" name="org"
-                        class="mb-2 w-full dark:bg-gray-800 dark:text-white border rounded-full border-red px-3 py-1" required>
+                        class="mb-2 w-full dark:bg-gray-800 dark:text-white border rounded-full border-blue-500 px-3 py-1" required>
                         @foreach (\App\Models\FiveM\Organisation::All() as $org)
                             <option value="{{ $org->name }}">{{ $org->label }}</option>
                         @endforeach
                     </select>
                     <select type="text" name="org_grade"
-                        class="mb-2 w-full dark:bg-gray-800 dark:text-white border rounded-full border-red px-3 py-1" required>
+                        class="mb-2 w-full dark:bg-gray-800 dark:text-white border rounded-full border-blue-500 px-3 py-1" required>
                         @foreach (\App\Models\FiveM\OrgGrade::All() as $orggrade)
                             <option value="{{ $orggrade->grade }}">{{ $orggrade->org_name }}
                                 ({{ $orggrade->label }} | {{ $orggrade->grade }})
@@ -205,7 +206,7 @@
                 <footer
                     class="flex flex-col items-center justify-end px-6 py-3 -mx-6 -mb-4 space-y-4 sm:space-y-0 sm:space-x-6 sm:flex-row bg-gray-50 dark:bg-gray-800">
                     <button @click="closeOrg" type="button"
-                        class="w-full px-5 py-3 text-sm font-medium leading-5 text-white transition-colors duration-150 border border-red-500 rounded-lg dark:text-white sm:px-4 sm:py-2 sm:w-auto bg-red-600 active:bg-red-500 hover:border-red-700 hover:bg-red-700 focus:border-red-500 active:text-red-500 focus:outline-none focus:shadow-outline-red">
+                        class="w-full px-5 py-3 text-sm font-medium leading-5 text-white transition-colors duration-150 border border-blue-500-500 rounded-lg dark:text-white sm:px-4 sm:py-2 sm:w-auto bg-blue-600 active:bg-blue-500 hover:border-blue-500-700 hover:bg-blue-700 focus:border-blue-500-500 active:text-blue-500 focus:outline-none focus:shadow-outline-blue">
                         Annuler
                     </button>
                     <button type="submit"
@@ -249,7 +250,7 @@
                     @csrf
 
                     <input type="text" name="identifier" placeholder="Saisir le Identifiant du joueur"
-                        class="mb-2 w-full dark:bg-gray-800 dark:text-white border rounded-full border-red px-3 py-1" required>
+                        class="mb-2 w-full dark:bg-gray-800 dark:text-white border rounded-full border-blue-500 px-3 py-1" required>
                     <small class="dark:text-white">Identifiant du joueur: {{ $player->identifier }}</small>
                     <input type="hidden" name="identifier" value="{{ $player->identifier }}" class="mb-2 form-control"
                         required>
@@ -257,7 +258,7 @@
                 <footer
                     class="flex flex-col items-center justify-end px-6 py-3 -mx-6 -mb-4 space-y-4 sm:space-y-0 sm:space-x-6 sm:flex-row bg-gray-50 dark:bg-gray-800">
                     <button @click="closeWipe" type="button"
-                        class="w-full px-5 py-3 text-sm font-medium leading-5 text-white transition-colors duration-150 border border-red-500 rounded-lg dark:text-white sm:px-4 sm:py-2 sm:w-auto bg-red-600 active:bg-red-500 hover:border-red-700 hover:bg-red-700 focus:border-red-500 active:text-red-500 focus:outline-none focus:shadow-outline-red">
+                        class="w-full px-5 py-3 text-sm font-medium leading-5 text-white transition-colors duration-150 border border-blue-500-500 rounded-lg dark:text-white sm:px-4 sm:py-2 sm:w-auto bg-blue-600 active:bg-blue-500 hover:border-blue-500-700 hover:bg-blue-700 focus:border-blue-500-500 active:text-blue-500 focus:outline-none focus:shadow-outline-blue">
                         Annuler
                     </button>
                     <button type="submit"
@@ -292,7 +293,7 @@
             </p>
         </div>
         <footer class="flex flex-col items-center justify-end px-6 py-3 -mx-6 -mb-4 space-y-4 sm:space-y-0 sm:space-x-6 sm:flex-row bg-gray-50 dark:bg-gray-800">
-            <button @click="closeModal" type="button" class="w-full px-5 py-3 text-sm font-medium leading-5 text-white transition-colors duration-150 border border-red-500 rounded-lg dark:text-white sm:px-4 sm:py-2 sm:w-auto bg-red-600 active:bg-red-500 hover:border-red-700 hover:bg-red-700 focus:border-red-500 active:text-red-500 focus:outline-none focus:shadow-outline-red">
+            <button @click="closeModal" type="button" class="w-full px-5 py-3 text-sm font-medium leading-5 text-white transition-colors duration-150 border border-blue-500-500 rounded-lg dark:text-white sm:px-4 sm:py-2 sm:w-auto bg-blue-600 active:bg-blue-500 hover:border-blue-500-700 hover:bg-blue-700 focus:border-blue-500-500 active:text-blue-500 focus:outline-none focus:shadow-outline-blue">
                 Annuler
                 </button>
                 <button type="submit"class="w-full px-5 py-3 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-green-600 border border-transparent rounded-lg sm:w-auto sm:px-4 sm:py-2 active:bg-green-600 hover:bg-green-700 focus:outline-none focus:shadow-outline-green">

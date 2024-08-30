@@ -7,7 +7,7 @@
 
         @foreach(\restray\FormBuilder\Models\Form::where('enabled', true)->get() as $form)
         <section class="py-8 leading-7 text-white sm:py-12 md:py-16 lg:py-24">
-            <div class="max-w-6xl px-10 mx-auto border-solid lg:px-12 bg-gray-900 py-16 rounded-md border border-red">
+            <div class="max-w-6xl px-10 mx-auto border-solid lg:px-12 bg-gray-900 py-16 rounded-md border border-blue-500">
                 <div class="flex flex-col items-start leading-7 text-white border-0 border-gray-200 lg:items-center lg:flex-row">
                     <div class="box-border flex-1 text-center border-solid sm:text-left">
                         <h2 class="m-0 text-4xl font-semibold leading-tight tracking-tight text-left text-white border-0 border-gray-200 sm:text-5xl">

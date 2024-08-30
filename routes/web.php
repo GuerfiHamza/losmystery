@@ -22,6 +22,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\OrgController;
 use App\Http\Controllers\Dashboard\CarsController;
+use App\Http\Controllers\Dashboard\BikesController;
+use App\Http\Controllers\Dashboard\LicenseController;
 use App\Http\Controllers\LSPD\RecordController;
 use App\Http\Controllers\LSPD\CriminalController;
 
@@ -95,22 +97,34 @@ Route::middleware(['auth', 'dashboard'])->prefix('dashboard')->name('dashboard-'
         Route::get('/accueil',[DashboardIndexController::class, 'index'])->name('index');
         Route::resource('player', PlayerController::class);
         Route::resource('cars', CarsController::class);
+        Route::resource('bikes', BikesController::class);
         Route::POST('player/jobedit', [ PlayerController::class, 'jobedit'])->name('player.jobedit');
         Route::POST('player/orgedit', [ PlayerController::class, 'orgedit'])->name('player.orgedit');
         Route::get('player/{player}/billings', [PlayerController::class, 'showBillings'])->name('player.show-billings');
-        Route::get('organisation', [OrganisationController::class, 'index'])->name('organisation.index');
+        // Route::get('organisation', [OrganisationController::class, 'index'])->name('organisation.index');
+        Route::resource('organisation', OrganisationController::class);
+
+        Route::post('/organisation/post', [OrganisationController::class,'post'])->name('organisation-post');
+        Route::post('/organisation/vehicle', [OrganisationController::class,'vehicle'])->name('organisation-vehicle');
+        Route::post('/organisation/reattribution', [OrganisationController::class,'allReattribute'])->name('organisation-reattribution');
+        Route::post('/organisation/promote', [OrganisationController::class,'promote'])->name('organisation-promote');
+        Route::post('/organisation/retire', [OrganisationController::class,'retire'])->name('organisation-retire');
+        Route::get('organisations/search', [OrganisationController::class, 'search'])->name('org_search');
+        
         Route::resource('job', DashboardJobController::class);
         Route::post('/job/post', [DashboardJobController::class,'post'])->name('entreprise-post');
         Route::post('/job/vehicle', [DashboardJobController::class,'vehicle'])->name('entreprise-vehicle');
         Route::post('/job/reattribution', [DashboardJobController::class,'allReattribute'])->name('entreprise-reattribution');
-
+        Route::post('/job/promote', [DashboardJobController::class,'promote'])->name('entreprise-promote');
+        Route::post('/job/retire', [DashboardJobController::class,'retire'])->name('entreprise-retire');
+        
         Route::get('jobs/search', [DashboardJobController::class, 'search'])->name('live_search');
-        Route::get('organisation/search', [OrganisationController::class, 'search'])->name('org_search');
         Route::get('recherche', [PlayerController::class, 'search'])->name('recherche');
         Route::get('connected', [ConnectedPlayerController::class, 'index'])->name('connected_player');
         Route::post('connected/kick', [ConnectedPlayerController::class, 'kick'])->name('connected_player.kick');
         Route::post('connected/ban', [ConnectedPlayerController::class, 'ban'])->name('connected_player.ban');
 
+        Route::resource('license', LicenseController::class);
     });
 
     Route::name('formbuilder::forms.')->group(function () {

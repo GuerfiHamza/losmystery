@@ -11,7 +11,7 @@
 
             <div class="w-1/4 mr-2 overflow-hidden ">
                 <div @click.away="open = false"
-                    class="flex flex-col w-1/4 text-white bg-gray-900 full w-flex-shrink-0 md:w-64 dark-mode:text-gray-200 dark-mode:bg-gray-900 rounded-md border border-red"
+                    class="flex flex-col w-1/4 text-white bg-gray-900 full w-flex-shrink-0 md:w-64 dark-mode:text-gray-200 dark-mode:bg-gray-900 rounded-md border border-blue-500"
                     x-data="{ open: false }">
                     <div class="items-center justify-between flex-shrink-0 px-8 py-4 ">
                         <p
@@ -53,7 +53,7 @@
                     <div id="entreprise-employees" class="block select">
                         <table class="w-5/6 text-gray-100 rounded-t-md bg-gradient-to-tl bg-gray-900">
                             <thead >
-                                <tr class="text-center border-b-2 border-red">
+                                <tr class="text-center border-b-2 border-blue-500">
                                     <th class="px-4 py-3">Employé(e)</th>
                                     <th class="px-4 py-3">Poste</th>
                                     <th class="px-4 py-3">Salaire</th>
@@ -64,7 +64,7 @@
                                 @foreach ($entreprise->members as $member)
                                 @if($loop->last)
 
-                                    <tr class="text-left border-b-2 border-red">
+                                    <tr class="text-left border-b-2 border-blue-500">
                                         <td class="px-4 py-2 border border-gray-800">{{ $member->name }}</td>
                                         <td class="px-4 py-2 border border-gray-800">
                                             {{ $member->getJobGrade()->label ?? 'Erreur de grade || CHANGEZ LE GRADE IMMEDIATEMENT' }}
@@ -118,7 +118,7 @@
                     <div id="entreprise-posts" class="hidden select">
                         <table class="w-5/6 text-gray-100 rounded-t-md bg-gradient-to-tl bg-gray-900">
                             <thead class="">
-                                <tr class="text-center border-b-2 border-red">
+                                <tr class="text-center border-b-2 border-blue-500">
                                     <th class="px-4 py-3">Emploie</th>
                                     <th class="px-4 py-3">Salaire</th>
                                     <th class="px-4 py-3">Action</th>
@@ -127,7 +127,7 @@
                             <tbody>
                                 @foreach ($entreprise->grades->sortByDesc('grade') as $grade)
                                 @if($loop->last)
-                                    <tr class="text-left border-b-2 border-red">
+                                    <tr class="text-left border-b-2 border-blue-500">
                                         <td class="px-4 py-2 border border-gray-800">{{ $grade->label }}</td>
                                         <td class="px-4 py-2 border border-gray-800">{{ $grade->salary }}$</td>
                                         <td class="px-4 py-2 border border-gray-800"><a  data-turbolinks="false"
@@ -165,7 +165,7 @@
 
                         <table class="w-5/6 text-gray-100 rounded-t-md bg-gradient-to-tl bg-gray-900">
                             <thead class="">
-                                <tr class="text-center border-b-2 border-red">
+                                <tr class="text-center border-b-2 border-blue-500">
                                     <th class="px-4 py-3">Plaque</th>
                                     <th class="px-4 py-3">Véhicule</th>
                                     <th class="px-4 py-3">Attribution</th>
@@ -177,7 +177,7 @@
                                 @foreach ($entreprise->vehicules as $vehicule)
                                 @if($loop->last)
 
-                                    <tr class="text-left border-b-2 border-red">
+                                    <tr class="text-left border-b-2 border-blue-500">
                                         <td class="px-4 py-2 border border-gray-800">{{ $vehicule->plate }}</td>
                                         <td class="px-4 py-2 border border-gray-800">{{ $vehicule->vehicle_name() }}</td>
                                         <td class="px-4 py-2 border border-gray-800">
@@ -215,7 +215,7 @@
 
                         <table class="w-5/6 text-gray-100 rounded-t-md bg-gradient-to-tl bg-gray-900">
                             <thead class="">
-                                <tr class="text-center border-b-2 border-red">
+                                <tr class="text-center border-b-2 border-blue-500">
                                     <th class="px-4 py-3">Expéditeur</th>
                                     <th class="px-4 py-3">Récepteur</th>
                                     <th class="px-4 py-3">Prix</th>
@@ -242,7 +242,7 @@
 
                         <table class="w-5/6 text-gray-100 rounded-t-md bg-gradient-to-tl bg-gray-900">
                             <thead class="">
-                                <tr class="text-center border-b-2 border-red">
+                                <tr class="text-center border-b-2 border-blue-500">
                                     <th class="px-4 py-3">Client</th>
                                     <th class="px-4 py-3">Vendeur</th>
                                     <th class="px-4 py-3">Plaque</th>
@@ -269,7 +269,7 @@
     
     <div id="modalPromote" class="fixed top-0 left-0 flex items-center justify-center w-full h-full opacity-0 pointer-events-none modal transition duration-150">
         <div class="absolute top-0 left-0 w-full h-full bg-black opacity-25 cursor-pointer modal-overlay" onclick="toggleModalPromote()"></div>
-        <div class="absolute w-1/2 p-4 shadow-lg bg-gradient-to-l bg-gray-900 rounded-md border border-red">
+        <div class="absolute w-1/2 p-4 shadow-lg bg-gradient-to-l bg-gray-900 rounded-md border border-blue-500">
             <h3 class="mb-8 text-2xl text-center text-white font-lato">Changer le grade de <span id="user-promoted"></span></h3>
             <form action="{{ route('entreprise-promote') }}" method="post">
                 @csrf
@@ -289,7 +289,7 @@
 
     <div id="modalRetire" class="fixed top-0 left-0 flex items-center justify-center w-full h-full opacity-0 pointer-events-none modal transition duration-150">
         <div class="absolute top-0 left-0 w-full h-full bg-black opacity-25 cursor-pointer modal-overlay" onclick="toggleModalRetire()"></div>
-        <div class="absolute w-1/2 p-4 shadow-lg bg-gradient-to-l bg-gray-900 rounded-md border border-red">
+        <div class="absolute w-1/2 p-4 shadow-lg bg-gradient-to-l bg-gray-900 rounded-md border border-blue-500">
             <h3 class="mb-8 text-2xl text-center text-white font-lato">Virer <span id="user-retired"></span></h3>
             <form action="{{ route('entreprise-retire') }}" method="post" class="font-lato">
                 @csrf
@@ -307,7 +307,7 @@
 
     <div id="modalPost" class="fixed top-0 left-0 flex items-center justify-center w-full h-full opacity-0 pointer-events-none modal transition duration-150">
         <div class="absolute top-0 left-0 w-full h-full bg-black opacity-25 cursor-pointer modal-overlay" onclick="toggleModalPost()"></div>
-        <div class="absolute w-1/2 p-4 shadow-lg bg-gradient-to-l bg-gray-900 rounded-md border border-red">
+        <div class="absolute w-1/2 p-4 shadow-lg bg-gradient-to-l bg-gray-900 rounded-md border border-blue-500">
             <h3 class="mb-8 text-2xl text-center text-white font-lato">Changer le poste "<span id="name-poste"></span>"</h3>
             <form action="{{ route('entreprise-post') }}" method="post" class="font-lato">
                 @csrf
@@ -328,7 +328,7 @@
 
     <div id="modalVehicle" class="fixed top-0 left-0 flex items-center justify-center w-full h-full opacity-0 pointer-events-none modal transition duration-150">
         <div class="absolute top-0 left-0 w-full h-full bg-black opacity-25 cursor-pointer modal-overlay" onclick="toggleModalVehicle()"></div>
-        <div class="absolute w-1/2 p-4 shadow-lg bg-gradient-to-l bg-gray-900 rounded-md border border-red">
+        <div class="absolute w-1/2 p-4 shadow-lg bg-gradient-to-l bg-gray-900 rounded-md border border-blue-500">
             <h3 class="mb-8 text-2xl text-center text-white font-lato">Changer L'attribution de la voiture immatriculé <span id="vehicule-plate-string"></span></h3>
             <form action="{{ route('entreprise-vehicle') }}" method="post">
                 @csrf

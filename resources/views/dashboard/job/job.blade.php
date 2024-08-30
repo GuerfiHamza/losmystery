@@ -18,7 +18,7 @@
                 Tous les entreprises
             </h2>
             <input type="text" placeholder="Recherche" id="search" name="search"
-                class="mb-2 dark:bg-gray-800 dark:text-white border rounded-2xl border-red h-10 px-2 py-2">
+                class="mb-2 dark:bg-gray-800 dark:text-white border rounded-2xl border-blue-500 h-10 px-2 py-2">
         </div>
 
         <div class="w-full overflow-hidden rounded-lg shadow-xs">

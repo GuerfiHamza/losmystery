@@ -1,6 +1,6 @@
 @extends('dashboard.layouts.app')
 
-@section('title', 'Tous nos joueurs')
+@section('title', 'Joueurs Connectés')
 
 
 @section('content')
@@ -113,13 +113,13 @@
                     <input type="hidden" id="playerToKickInput" name="player" value="">
 
                     <input type="text" name="reason" placeholder="Raison du kick (optionnel)"
-                        class="mb-2 w-full dark:bg-gray-800 dark:text-white border rounded-full border-red px-3 py-1">
+                        class="mb-2 w-full dark:bg-gray-800 dark:text-white border rounded-full border-blue-500 px-3 py-1">
 
                 </div>
                 <footer
                     class="flex flex-col items-center justify-end px-6 py-3 -mx-6 -mb-4 space-y-4 sm:space-y-0 sm:space-x-6 sm:flex-row bg-gray-50 dark:bg-gray-800">
                     <button @click="closeWipe" type="button"
-                        class="w-full px-5 py-3 text-sm font-medium leading-5 text-white transition-colors duration-150 border border-red-500 rounded-lg dark:text-white sm:px-4 sm:py-2 sm:w-auto bg-red-600 active:bg-red-500 hover:border-red-700 hover:bg-red-700 focus:border-red-500 active:text-red-500 focus:outline-none focus:shadow-outline-red">
+                        class="w-full px-5 py-3 text-sm font-medium leading-5 text-white transition-colors duration-150 border border-red-500 rounded-lg dark:text-white sm:px-4 sm:py-2 sm:w-auto bg-red-600 active:bg-red-500 hover:border-blue-500-700 hover:bg-red-700 focus:border-blue-500-500 active:text-red-500 focus:outline-none focus:shadow-outline-red">
                         Annuler
                     </button>
                     <button type="submit"
@@ -163,15 +163,15 @@
                     <input type="hidden" id="playerToBanInput" name="player">
 
                     <input type="text" name="ban_confirmation" placeholder="Saisir l'ID IG du joueur"
-                        class="mb-2 w-full dark:bg-gray-800 dark:text-white border rounded-full border-red px-3 py-1"
+                        class="mb-2 w-full dark:bg-gray-800 dark:text-white border rounded-full border-blue-500 px-3 py-1"
                         required>
                     <input type="text" name="reason" placeholder="Raison du Ban (optionnel)"
-                        class="mb-2 w-full dark:bg-gray-800 dark:text-white border rounded-full border-red px-3 py-1">
+                        class="mb-2 w-full dark:bg-gray-800 dark:text-white border rounded-full border-blue-500 px-3 py-1">
                 </div>
                 <footer
                     class="flex flex-col items-center justify-end px-6 py-3 -mx-6 -mb-4 space-y-4 sm:space-y-0 sm:space-x-6 sm:flex-row bg-gray-50 dark:bg-gray-800">
                     <button @click="closeModal" type="button"
-                        class="w-full px-5 py-3 text-sm font-medium leading-5 text-white transition-colors duration-150 border border-red-500 rounded-lg dark:text-white sm:px-4 sm:py-2 sm:w-auto bg-red-600 active:bg-red-500 hover:border-red-700 hover:bg-red-700 focus:border-red-500 active:text-red-500 focus:outline-none focus:shadow-outline-red">
+                        class="w-full px-5 py-3 text-sm font-medium leading-5 text-white transition-colors duration-150 border border-red-500 rounded-lg dark:text-white sm:px-4 sm:py-2 sm:w-auto bg-red-600 active:bg-red-500 hover:border-blue-500-700 hover:bg-red-700 focus:border-blue-500-500 active:text-red-500 focus:outline-none focus:shadow-outline-red">
                         Annuler
                     </button>
                     <button type="submit"

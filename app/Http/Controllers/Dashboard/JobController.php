@@ -7,7 +7,6 @@ use App\Models\FiveM\Job;
 use App\Models\FiveM\JobGrade;
 use App\Models\FiveM\Player;
 use Illuminate\Http\Request;
-use App\Models\FiveM\Organisation;
 use Alert;
 use Flasher\Prime\FlasherInterface;
 use Illuminate\Support\Facades\Http;
@@ -22,7 +21,7 @@ class JobController extends Controller
      */
     public function index(Request $request)
     {
-        $job=Job::when($request->has("name"),function($q)use($request){
+        $job = Job::when($request->has("name"),function($q)use($request){
             return $q->where("name","like","%".$request->get("name")."%");
         })->paginate(5);
         if($request->ajax()){
@@ -208,6 +207,83 @@ class JobController extends Controller
                         'embeds' => [
                             [
                                 'title' =>  "Le vehicule " .$vehicle->plate." de ". $entreprise->label ." a été modifier par ". \Auth::user()->players->name,
+                                'color' => '16711680',
+                            ]
+                        ],
+                    ]));;
+    }
+
+    public function promote(Request $request, FlasherInterface $flasher)
+    {
+        // Get the entreprise
+        $entreprise = Job::findOrFail($request->job);
+
+        // Validate the client request
+        $request->validate([
+            'user' => 'required|in:'.$entreprise->validationStringMembers(),
+            'grade' => 'required|in:'.$entreprise->validationStringGrades(),
+        ]);
+
+        // Get player
+        $player = Player::findOrFail($request->user);
+
+        
+        if ($player->isPlayerOnline()) {
+        Alert::toast( 'Vous ne pouvez pas promouvoir une personne en ville.', 'error');
+
+            return redirect()->back();
+
+        }
+
+        $grade = JobGrade::findOrFail($request->grade);
+
+        // Change the post of the player
+        $player->job_grade = $grade->grade;
+        $player->save();
+        $flasher->addSuccess('Le grade a bien été modifier.');
+
+        // Redirect on page
+        return redirect()->back()->with('success', 'TEST.',
+                    Http::post('https://discord.com/api/webhooks/1276998773528199401/SULQjwjEuKMBmSSHLu9UwknTvCjXqbugpyCQspSCwt4t9TcIzoqQtwJSdc1NGR5xEsAD', [
+                        'content' => "Le grade de". $player->name ." a été modifié",
+                        'embeds' => [
+                            [
+                                'title' =>  "Le grade de ". $player->name ." chez ". $entreprise->label." est devenu grade: ".$grade->grade." par ".\Auth::user()->players->name,
+                                'color' => '16711680',
+                            ]
+                        ],
+                    ]));;
+    }
+
+    public function retire(Request $request, FlasherInterface $flasher)
+    {
+        // Get the entreprise and player from request
+        $entreprise = Job::findOrFail($request->job);
+        $player = Player::findOrFail($request->user);
+
+        // Validate the client request
+        $request->validate([
+            'user' => 'required|in:'.$entreprise->validationStringMembers(),
+            'name' => 'required',
+        ]);
+
+        if ($player->isPlayerOnline()) {
+        Alert::toast('Vous ne pouvez pas virer une personne en ville.', 'error');
+
+            return redirect()->back();
+        }
+
+        $player->job = "unemployed";
+        $player->job_grade = 0;
+        $player->save();
+        $flasher->addSuccess('Vous avez bien viré '. $player->name .'.');
+
+        return redirect()->back()->with('success', 'TEST.',
+                    Http::post('https://discord.com/api/webhooks/1276998773528199401/SULQjwjEuKMBmSSHLu9UwknTvCjXqbugpyCQspSCwt4t9TcIzoqQtwJSdc1NGR5xEsAD', [
+                        'content' => "Le joueur ". $player->name ." a été viré",
+                        'embeds' => [
+                            [
+                                'title' =>  "Le joueur ". $player->name ." de ". $entreprise->label." a été viré par ".\Auth::user()->players->name,
                                 'color' => '16711680',
                             ]
                         ],

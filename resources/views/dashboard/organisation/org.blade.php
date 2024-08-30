@@ -18,7 +18,7 @@
                 Tous les Organisations
             </h2>
             <input type="text" placeholder="Recherche" id="search" name="search"
-                class="mb-2 dark:bg-gray-800 dark:text-white border rounded-2xl border-red h-10 px-2 py-2">
+                class="mb-2 dark:bg-gray-800 dark:text-white border rounded-2xl border-blue-500 h-10 px-2 py-2">
         </div>
 
         <div class="w-full overflow-hidden rounded-lg shadow-xs">
@@ -57,31 +57,31 @@
     <script>
         $(document).ready(function() {
           
-            fetch_customer_data();
-            $(document).on('click', '#pagenum a', function(event){
-            event.preventDefault(); 
-            var page = $(this).attr('href').split('page=')[1];
-            fetch_customer_data(page);
-            });
-            function fetch_customer_data(query = '') {
-                $.ajax({
-                    url: "{{ route('dashboard-org_search') }}",
-                    method: 'GET',
-                    data: {
-                        query: query
-                    },
-                    dataType: 'json',
-                    success: function(data) {
-                        $('tbody').html(data.table_data);
-                        $('#total_records').text(data.total_data);
-                    }
-                })
-            }
+          fetch_customer_data();
+          $(document).on('click', '#pagenum a', function(event){
+          event.preventDefault(); 
+          var page = $(this).attr('href').split('page=')[1];
+          fetch_customer_data(page);
+          });
+          function fetch_customer_data(query = '') {
+              $.ajax({
+                  url: "{{ route('dashboard-org_search') }}",
+                  method: 'GET',
+                  data: {
+                      query: query
+                  },
+                  dataType: 'json',
+                  success: function(data) {
+                      $('tbody').html(data.table_data);
+                      $('#total_records').text(data.total_data);
+                  }
+              })
+          }
 
-            $(document).on('keyup', '#search', function() {
-                var query = $(this).val();
-                fetch_customer_data(query);
-            });
-        });
+          $(document).on('keyup', '#search', function() {
+              var query = $(this).val();
+              fetch_customer_data(query);
+          });
+      });
     </script>
 @stop

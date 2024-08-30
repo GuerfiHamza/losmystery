@@ -60,7 +60,7 @@
         <div class="row align-items-center">
             <h3 class="card-title col-6">Formulaires</h3>
             <div class="text-right col-6">
-                <a href="{{ route('dashboard-form.create') }}" class="btn btn-success btn-sm">Créer</a>
+                <a href="{{ route('dashboard-form.create') }}" class=" ">Créer</a>
             </div>
         </div>
     </div>
