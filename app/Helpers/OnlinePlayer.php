@@ -11,7 +11,7 @@ class OnlinePlayer
 
             // Make request
             $response = $rcon->rcon('status');
-                
+
             // Split lines
             $player = explode("\n", $response);
 
@@ -28,12 +28,11 @@ class OnlinePlayer
 
                     array_splice($p, 0, -(count($p)-2));
 
-                    $ip = $p[count($p)-1];
+                    $ip = $p[1];
                     $port = $p[count($p)-1];
 
                     array_splice($p, 2);
-                    
-                    $name = implode(" ", $p);
+                    $name = $p[0];
 
                     $info = ['id' => $id, 
                             'steamhex' => $steamhex, 
@@ -51,6 +50,6 @@ class OnlinePlayer
         }
 
         return collect($players);
-        dd($p[1]);
+        // dd($p[1]);
     }
 }

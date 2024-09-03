@@ -12,7 +12,7 @@ class CarsController extends Controller
 {
     public function index()
     {
-        $cars = Cars::all();
+        $cars = Cars::paginate(10);
         // dd('$organisations');
         return view('dashboard.cars.index', compact('cars'));
     }

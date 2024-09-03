@@ -25,6 +25,7 @@ class License extends Model
 
     public function player()
     {
-        return $this->belongsTo('App\Models\FiveM\Player', 'owner');
+        return $this->belongsTo('App\Models\FiveM\Player', 'owner', 'identifier');
     }
+    
 }

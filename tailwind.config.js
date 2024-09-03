@@ -28,6 +28,7 @@ module.exports = {
                     light: '#FF0000',
                     DEFAULT: '#FF0000',
                     dark: '#A60306',
+                    'bg' : '#AA0009',
 
                 },
                 transparent: 'transparent',
@@ -44,6 +45,7 @@ module.exports = {
                   '700': '#24262d',
                   '800': '#1a1c23',
                   '900': '#121317',
+                  'new': '#111111',
                   // default values from Tailwind UI palette
                   // '300': '#d2d6dc',
                   // '400': '#9fa6b2',
@@ -88,6 +90,7 @@ module.exports = {
                   '700': '#8e4b10',
                   '800': '#723b13',
                   '900': '#633112',
+                  'bg' : '#ffca00',
                 },
                 green: {
                   '50': '#f3faf7',
@@ -179,11 +182,10 @@ module.exports = {
                 // => @media (min-width: 1536px) { ... }
             },
             boxShadow: {
-                '3xl': '0 0px 60px 0px rgba(255, 0, 0, 50%)',
+                '3xl': '0 0px 60px 0px rgba(227, 160, 8, 50%)',
                 '4xl': '0 0px 60px 0px rgba(255, 255, 255, 50%)',
                 '5xl': '0 0px 60px 0px rgba(0, 166, 2, 50%)',
               }
-
         },
     },
 

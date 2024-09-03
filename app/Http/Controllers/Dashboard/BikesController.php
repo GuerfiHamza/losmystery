@@ -11,7 +11,7 @@ class BikesController extends Controller
 {
     public function index()
     {
-        $bikes = Bikes::all();
+        $bikes = Bikes::paginate(10);
         // dd('$organisations');
         return view('dashboard.bikes.index', compact('bikes'));
     }

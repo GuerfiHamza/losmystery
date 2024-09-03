@@ -187,7 +187,7 @@ final class Versions
   'stefanzweifel/laravel-stats-phploc' => '7.1.0@9c96c5528c294c4ac7620b6ec9d6cee6de1477b1',
   'theseer/tokenizer' => '1.2.0@75a63c33a8577608444246075ea0af0d052e452a',
   'wnx/laravel-stats' => 'v2.5.2@3bb622cb20a8c17d3d8fe9429e02df3f4d43ee81',
-  'laravel/laravel' => 'dev-main@05163763194641207f078a62b3c693b52570450d',
+  'laravel/laravel' => 'dev-main@cbdfb4ebba7a11cc5ceda116206ce3840841411c',
 );
 
     private function __construct()

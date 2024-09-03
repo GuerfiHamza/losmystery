@@ -244,11 +244,12 @@ class PlayerController extends Controller
         $results = Player::query()
         ->where('name', 'LIKE', '%'.$request->search.'%')
         ->orWhere('identifier', 'LIKE', '%'.$request->search.'%')
-        ->orWhere('license', 'LIKE', '%'.$request->search.'%')
+        ->orWhere('steamid', 'LIKE', '%'.$request->search.'%')
         ->orWhere('name', 'LIKE', '%'.$request->search.'%')
         ->orWhere('firstname', 'LIKE', '%'.$request->search.'%')
         ->orWhere('lastname', 'LIKE', '%'.$request->search.'%')
         ->paginate(10);
+        // dd($results);
         $billings = Billing::query()
         ->where('sender', 'LIKE', '%'.$request->search.'%')
         ->orWhere('identifier', 'LIKE', '%'.$request->search.'%')

@@ -5,6 +5,17 @@
 @section('content')
  
 
+@if (\restray\FormBuilder\Models\Submission::where('user_id', Auth::id())->count() > 0)
+<section class="py-8 leading-7 text-white sm:py-12 md:py-16 lg:py-24">
+    <div class="max-w-6xl px-10 mx-auto border-solid lg:px-12 bg-gray-900 py-16 rounded-md border border-blue-500">
+
+    <strong class="font-bold text-red-500">Attention !</strong>
+        <span class="block sm:inline">Vous avez déjà soumis un formulaire.</span>
+    </div>
+</section>
+    
+@else
+    
         @foreach(\restray\FormBuilder\Models\Form::where('enabled', true)->get() as $form)
         <section class="py-8 leading-7 text-white sm:py-12 md:py-16 lg:py-24">
             <div class="max-w-6xl px-10 mx-auto border-solid lg:px-12 bg-gray-900 py-16 rounded-md border border-blue-500">
@@ -15,19 +26,19 @@
                         </h2>
 
                     </div>
-                    <div class="hover:shadow-3xl transition-shadow duration-500">
-                    <a href="{{ route('formbuilder::form.render', ['identifier' => $form->identifier]) }}"  data-turbolinks="false" class="block w-full px-5 py-3 text-base font-medium leading-6 text-center text-white transition duration-150 ease-in-out rounded-md bg-red md:inline-flex md:shadow-sm md:w-auto hover:bg-red-light focus:outline-none focus:shadow-outline z-50">
-                        S'inscrire
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 ml-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="5" y1="12" x2="19" y2="12"></line>
-                            <polyline points="12 5 19 12 12 19"></polyline>
-                        </svg>
-                    </a>
+                    <div>
+                        <a href="{{ route('formbuilder::form.render', ['identifier' => $form->identifier]) }}"  data-turbolinks="false" class="relative inline-block px-6 py-2 font-medium group">
+                            <span class="absolute inset-0 w-full h-full transition duration-200 ease-out transform translate-x-1 translate-y-1 bg-red-bg group-hover:-translate-x-0 group-hover:-translate-y-0"></span>
+                            <span class="absolute inset-0 w-full h-full bg-yellow-bg border-2 border-red-bg group-hover:bg-red-bg"></span>
+                            <span class="relative text-2xl text-black montserrat tracking-wider group-hover:text-white">S'inscrire</span>
+                            </a>
+                    
                 </div>
                 </div>
             </div>
         </section>
         @endforeach
+        @endif
 
 @endsection
 

@@ -59,6 +59,11 @@ class User extends Authenticatable
     {
         return $this->players->group == "admin" || $this->players->group == "superadmin";
     }
+
+    public function hasFormsubmitted(FormSubmission $form)
+    {
+        return $this->formSubmissions->contains($form);
+    }
     // public function isModo()
     // {
     //     if (\App\Models\FiveM\Permissions::where('identifier', '=', \Auth::user()->players->identifier)->whereIn('rank', ['modo','admin','gerant'])->first()) {

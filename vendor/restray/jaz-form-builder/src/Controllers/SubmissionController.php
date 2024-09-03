@@ -81,7 +81,7 @@ class SubmissionController extends Controller
         $submission->tag = $request->tag;
         $submission->save();
         $flasher->addSuccess('Soumission bien mis à jour.');
-        
+        // dd($submission->tag);
         return redirect()
                     ->route('formbuilder::forms.submissions.show', ['fid' => $form_id, 'submission' => $submission_id])
                     ->with('success', __('Soumission bien mis à jour.'));

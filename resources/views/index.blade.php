@@ -9,20 +9,23 @@
 
 
 @section('content')
-    <div class="h-full max-h-screen py-8 md:py-36 hero">
 
+
+    <div class=" h-screen py-8 md:py-36 hero ">
+        
         <section class="flex flex-col items-center justify-center py-2 bg-cover md:py-2 lg:py-2 min-w-screen tails-bg">
             <div class="flex flex-col items-center justify-center p-10 mx-auto lg:flex-row lg:max-w-6xl lg:p-0">
+                
                 <div
                     class="container z-20 flex flex-col w-full px-5 pr-12 mb-16 text-2xl text-white lg:w-1/2 sm:px-0 md:px-10 sm:items-center lg:items-start lg:mb-0">
                     <h1
-                        class="z-20 font-sans text-4xl font-extrabold leading-none text-white sm:text-5xl xl:text-6xl sm:text-center lg:text-left">
+                        class="z-20 font-sans text-4xl font-extrabold montserrat tracking-wider leading-none text-white sm:text-5xl xl:text-6xl sm:text-center lg:text-left">
                         <span class="relative">
                             <span
-                                class="absolute bottom-0 left-0 inline-block w-full h-4 mb-1 -ml-1 transform -skew-x-3 bg-blue-500"></span>
-                            <span class="relative">LosMystery,</span>
+                                class="absolute bottom-0 left-0 inline-block w-full h-4 mb-1 -ml-1 transform -skew-x-3 bg-yellow-bg"></span>
+                            <span class="relative">Los Mystery,</span>
                         </span>
-                        <span class="relative block text-blue-500">Nouvelle vie.</span>
+                        <span class="relative block text-yellow-bg">Nouvelle vie.</span>
                     </h1>
                     <p class="z-20 block mt-6 text-base text-white xl:text-lg sm:text-center lg:text-left">Rejoins notre
                         serveur, ta ville, LosMystery !
@@ -33,10 +36,16 @@
                     <div class="flex items-center mt-10 ">
                             <div class="grid gap-8 items-start justify-center">
                               <div class="relative group">
-                                <div class="absolute -inset-0.5 bg-gradient-to-r from-red-light to-red-dark rounded-lg blur-lg "> </div>
-                                <a class="relative px-7 py-4 hover:shadow-3xl bg-black rounded-lg leading-none flex items-center divide-x divide-gray-600 duration-500 transition-shadow" href="https://discord.gg/kTPFjXD36Q" target="_blank">
+                                {{-- <a class="relative px-8 py-3 bg-blue-500 border-yellow-bg border-4 leading-none flex items-center divide-x divide-gray-600 duration-500 transition-shadow">
                                  Discord
-                                </a>
+                                </a> --}}
+
+                                <a href="https://discord.gg/kTPFjXD36Q" target="_blank" class="relative inline-block px-4 py-2 font-medium group">
+                                    <span class="absolute inset-0 w-full h-full transition duration-200 ease-out transform translate-x-1 translate-y-1 bg-red-bg group-hover:-translate-x-0 group-hover:-translate-y-0"></span>
+                                    <span class="absolute inset-0 w-full h-full bg-yellow-bg border-2 border-red-bg group-hover:bg-red-bg"></span>
+                                    <span class="relative text-black montserrat tracking-wider group-hover:text-white">Discord</span>
+                                    </a>
+
                               </div>
                             </div>
                     </div>
@@ -44,26 +53,33 @@
                 <div
                     class="invisible w-full px-8 mb-12 rounded-lg cursor-pointer md:visible md:px-0 lg:mb-0 lg:pl-10 md:w-2/3 lg:w-1/2 group">
                     <div class="rounded-md ">
-                        <img src="{{ asset('img/Logo.jpg') }}" class="object-cover w-full h-full ">
+                        <img src="{{ asset('img/bg.png') }}" class="object-cover w-full h-full cursor-default">
                     </div>
                 </div>
+                
             </div>
         </section>
 
     </div>
+
+
+
+
+
+
     <div
         class="px-4 py-16 mx-auto border-2 sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20 border-blue rounded-xl">
         <div class="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
             <div>
                 <p
-                    class="inline-block px-3 py-px mb-4 text-xs font-semibold tracking-wider uppercase bg-white rounded-full text-blue">
+                    class="inline-block px-3 py-px mb-4 text-xs font-semibold tracking-wider uppercase bg-blue-500 rounded-full text-blue">
                     Rejoignez-nous
                 </p>
             </div>
             <h2
                 class="max-w-lg mb-6 font-sans text-3xl font-bold leading-none tracking-tight text-white sm:text-4xl md:mx-auto">
                 <span class="relative inline-block">
-                    <svg viewBox="0 0 52 24" fill="#FF0000"
+                    <svg viewBox="0 0 52 24" fill="#E3A008"
                         class="absolute top-0 left-0 z-0 hidden w-32 -mt-8 -ml-20 white lg:w-32 lg:-ml-28 lg:-mt-10 sm:block">
                         <defs>
                             <pattern id="f51618fb-0edb-4bcb-b35a-ffc770941286" x="0" y="0" width=".135" height=".30">
@@ -80,7 +96,7 @@
         <div class="grid gap-8 row-gap-0 lg:grid-cols-3">
             <div class="relative text-center">
                 <div
-                    class="flex items-center justify-center w-16 h-16 mx-auto mb-4 rounded-full bg-blue-500 sm:w-20 sm:h-20">
+                    class="flex items-center justify-center w-16 h-16 mx-auto mb-4 rounded-full bg-yellow-bg sm:w-20 sm:h-20">
                     <svg class="w-12 h-12 text-white sm:w-16 sm:h-16" stroke="currentColor" viewBox="0 0 52 52">
                         <polygon stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"
                             points="29 13 14 29 25 29 23 39 38 23 27 23"></polygon>
@@ -103,7 +119,7 @@
             </div>
             <div class="relative text-center">
                 <div
-                    class="flex items-center justify-center w-16 h-16 mx-auto mb-4 rounded-full bg-blue-500 sm:w-20 sm:h-20">
+                    class="flex items-center justify-center w-16 h-16 mx-auto mb-4 rounded-full bg-yellow-bg sm:w-20 sm:h-20">
                     <svg class="w-12 h-12 text-white sm:w-16 sm:h-16" stroke="currentColor" viewBox="0 0 52 52">
                         <polygon stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"
                             points="29 13 14 29 25 29 23 39 38 23 27 23"></polygon>
@@ -131,7 +147,7 @@
             </div>
             <div class="relative text-center">
                 <div
-                    class="flex items-center justify-center w-16 h-16 mx-auto mb-4 rounded-full bg-blue-500 sm:w-20 sm:h-20">
+                    class="flex items-center justify-center w-16 h-16 mx-auto mb-4 rounded-full bg-yellow-bg sm:w-20 sm:h-20">
                     <svg class="w-12 h-12 text-white sm:w-16 sm:h-16" stroke="currentColor" viewBox="0 0 52 52">
                         <polygon stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"
                             points="29 13 14 29 25 29 23 39 38 23 27 23"></polygon>

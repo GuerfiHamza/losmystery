@@ -299,5 +299,9 @@ class Player extends Model
         return \App\Models\PlayerTreasory::where('identifier', '=', $this->identifier)->get();
     }
 
+    public function getLicenses()
+    {
+        return $this->hasMany('App\Models\FiveM\License', 'owner', 'identifier');
+    }
    
 }

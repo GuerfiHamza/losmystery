@@ -12,6 +12,7 @@ class ConnectedPlayerController extends Controller
     public function index()
     {
         $players = \App\Helpers\OnlinePlayer::getOnlinePlayers();
+        // dd($players->first()['steamhex']);
         return view('dashboard.connected_players', compact('players'));
     }
 
@@ -38,7 +39,7 @@ class ConnectedPlayerController extends Controller
     {
         if ($request->ban_confirmation == $request->player) {
             $rcon = new \App\Helpers\Q3Query;
-            $rcon->rcon('ban ' . $request->player . ' ' . $request->reason);
+            $rcon->rcon('tempbanclient ' . $request->player . ' ' . $request->reason);
             $flasher->addSuccess('Le joueur a bien été ban!');
     
             return redirect()->route('dashboard-connected_player')
@@ -47,7 +48,7 @@ class ConnectedPlayerController extends Controller
                         'content' => "Un joueur viens d'etre ban",
                         'embeds' => [
                             [
-                                'title' =>  $request->player['name'].' a été ban par '.\Auth::user()->players->name.' pour raison '.$request->reason,
+                                'title' =>  $request->player. ' a été ban par '.\Auth::user()->players->name.' pour raison '.$request->reason,
                                 'color' => '14177041',
                             ]
                         ],

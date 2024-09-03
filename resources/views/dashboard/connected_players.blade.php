@@ -7,11 +7,15 @@
 
     <div class="container grid px-6 mx-auto">
         <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">
-            {{ $players->count() }} Joueurs connecter
+            {{ $players->count()}} Joueurs connecter
         </h2>
 
         <div class="w-full overflow-hidden rounded-lg shadow-xs ">
             <div class="w-full overflow-x-auto bg-gray-300 dark:bg-gray-800">
+                @if ($players->first()['steamhex']  == "")
+                            NO PLAYERS CONNECTED
+                            
+                        @else
                 <table class="w-full whitespace-no-wrap ">
                     <thead>
                         <tr
@@ -23,6 +27,8 @@
                         </tr>
                     </thead>
                     <tbody class=" divide-y dark:divide-gray-700 dark:bg-gray-800">
+                        
+                            
                         @foreach ($players as $player)
                             <tr class="text-gray-700 dark:text-gray-400">
                                 <td class="px-4 py-3">
@@ -77,11 +83,14 @@
 
                     </tbody>
                 </table>
+                @endif
+
             </div>
 
         </div>
     </div>
-
+    @if ($players->first()['steamhex']  == "")
+    @else
     <div x-show="isWipeOpen" x-transition:enter="transition ease-out duration-150" x-transition:enter-start="opacity-0"
         x-transition:enter-end="opacity-100" x-transition:leave="transition ease-in duration-150"
         x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0"
@@ -110,7 +119,7 @@
                 @csrf
                 <div class="mt-4 mb-6">
                     @csrf
-                    <input type="hidden" id="playerToKickInput" name="player" value="">
+                    <input type="hidden" id="playerToKickInput" name="player" value="{{ $player['id']}}">
 
                     <input type="text" name="reason" placeholder="Raison du kick (optionnel)"
                         class="mb-2 w-full dark:bg-gray-800 dark:text-white border rounded-full border-blue-500 px-3 py-1">
@@ -160,7 +169,7 @@
                 @csrf
                 <div class="mt-4 mb-6">
 
-                    <input type="hidden" id="playerToBanInput" name="player">
+                    <input type="hidden" id="playerToBanInput" name="player" value="{{ $player['id']}}">
 
                     <input type="text" name="ban_confirmation" placeholder="Saisir l'ID IG du joueur"
                         class="mb-2 w-full dark:bg-gray-800 dark:text-white border rounded-full border-blue-500 px-3 py-1"
@@ -184,7 +193,7 @@
         </div>
     </div>
     </div>
-
+    @endif
 @stop
 
 @section('css')

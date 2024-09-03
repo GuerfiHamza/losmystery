@@ -46,16 +46,19 @@ class Q3Query {
 	    $start = microtime(true);
         do {
         	$read = fread($this->fp, 9999);
-			$s .= substr($read, strpos($read, "\n") + 1);
+
+			$s = substr($read, strpos($read, "\n") + 1);
+
     		if (!isset($end)) {
     			$end = microtime(true);
     		}
 			$info = stream_get_meta_data($this->fp);
+
 		}
-		while (!$info["timed_out"]);
+
+		while ($info["timed_out"]);
 
 		$this->lastPing = round(($end - $start) * 1000);
-
         return $s;
     }
 

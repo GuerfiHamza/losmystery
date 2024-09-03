@@ -15,10 +15,9 @@
     <link rel="shortcut icon" type="image/png" href="{{ asset('img/Logo.png') }}">
 
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lato&family=Open+Sans:wght@400;700&display=swap"
-        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
 
     <!-- Global site tag (gtag.js) - Google Analytics
@@ -78,7 +77,7 @@
     <script src="{{ asset('js/app.js') }}"></script>
 </head>
 
-<body class="bg-black">
+<body class="bg-gray-new bebas">
     <div class="header-2">
 
         <section class="relative py-2">
@@ -95,11 +94,11 @@
                         @else
                         x-data="{ hover: false }" @endif
                         @mouseenter="hover = true" @mouseleave="hover = false"
-                        class="relative inline-block text-base font-bold text-gray-200 uppercase transition duration-150 ease hover:text-white">
+                        class="relative inline-block text-2xl montserrat tracking-wide text-gray-200 uppercase transition duration-150 ease hover:text-white">
                         <span class="block">Accueil</span>
                         <span class="absolute bottom-0 left-0 inline-block w-full h-1 -mb-1 overflow-hidden">
                             <span x-show="hover"
-                                class="absolute inset-0 inline-block w-full h-1 h-full transform border-t-2 border-red"
+                                class="absolute inset-0 inline-block w-full h-1 h-full transform border-t-2 border-red-bg-bg"
                                 x-transition:enter="transition ease-out duration-300"
                                 x-transition:enter-start="-translate-x-full" x-transition:enter-end="translate-x-0"
                                 x-transition:leave="transition ease-out duration-300"
@@ -110,11 +109,11 @@
                     <!-- <a href="/wlip.php" target="_blank" @if (Request::is('wlip')) x-data="{ hover: true }"
                     @else
                          x-data="{ hover: false }" @endif @mouseenter="hover = true" @mouseleave="hover = false"
-                                            class="relative inline-block text-base font-bold text-gray-200 uppercase transition duration-150 ease hover:text-white">
+                                            class="relative inline-block text-2xl montserrat tracking-wide text-gray-200 uppercase transition duration-150 ease hover:text-white">
                                             <span class="block">Wl ton IP</span>
                                             <span class="absolute bottom-0 left-0 inline-block w-full h-1 -mb-1 overflow-hidden">
                                                 <span x-show="hover"
-                                                    class="absolute inset-0 inline-block w-full h-1 h-full transform border-t-2 border-red"
+                                                    class="absolute inset-0 inline-block w-full h-1 h-full transform border-t-2 border-red-bg"
                                                     x-transition:enter="transition ease-out duration-300"
                                                     x-transition:enter-start="-translate-x-full" x-transition:enter-end="translate-x-0"
                                                     x-transition:leave="transition ease-out duration-300"
@@ -127,11 +126,11 @@
                         @else
                      x-data="{ hover: false }" @endif
                         @mouseenter="hover = true" @mouseleave="hover = false"
-                        class="relative inline-block text-base font-bold text-gray-200 uppercase transition duration-150 ease hover:text-white">
+                        class="relative inline-block text-2xl montserrat tracking-wide text-gray-200 uppercase transition duration-150 ease hover:text-white">
                         <span class="block">Réglement</span>
                         <span class="absolute bottom-0 left-0 inline-block w-full h-1 -mb-1 overflow-hidden">
                             <span x-show="hover"
-                                class="absolute inset-0 inline-block w-full h-1 h-full transform border-t-2 border-red"
+                                class="absolute inset-0 inline-block w-full h-1 h-full transform border-t-2 border-red-bg"
                                 x-transition:enter="transition ease-out duration-300"
                                 x-transition:enter-start="-translate-x-full" x-transition:enter-end="translate-x-0"
                                 x-transition:leave="transition ease-out duration-300"
@@ -144,11 +143,11 @@
                         @else
                       x-data="{ hover: false }" @endif
                         @mouseenter="hover = true" @mouseleave="hover = false"
-                        class="relative inline-block text-base font-bold text-gray-200 uppercase transition duration-150 ease hover:text-white">
+                        class="relative inline-block text-2xl montserrat tracking-wide text-gray-200 uppercase transition duration-150 ease hover:text-white">
                         <span class="block">Formulaires</span>
                         <span class="absolute bottom-0 left-0 inline-block w-full h-1 -mb-1 overflow-hidden">
                             <span x-show="hover"
-                                class="absolute inset-0 inline-block w-full h-1 h-full transform border-t-2 border-red"
+                                class="absolute inset-0 inline-block w-full h-1 h-full transform border-t-2 border-red-bg"
                                 x-transition:enter="transition ease-out duration-300"
                                 x-transition:enter-start="-translate-x-full" x-transition:enter-end="translate-x-0"
                                 x-transition:leave="transition ease-out duration-300"
@@ -158,11 +157,11 @@
                     </a>
                     <!-- <a href="https://top-serveurs.net/gta/LosMysteryrp" target='_blank' x-data="{ hover: false }"
                         @mouseenter="hover = true" @mouseleave="hover = false"
-                        class="relative inline-block text-base font-bold text-gray-200 uppercase transition duration-150 ease hover:text-white">
+                        class="relative inline-block text-2xl montserrat tracking-wide text-gray-200 uppercase transition duration-150 ease hover:text-white">
                         <span class="block">Vote</span>
                         <span class="absolute bottom-0 left-0 inline-block w-full h-1 -mb-1 overflow-hidden">
                             <span x-show="hover"
-                                class="absolute inset-0 inline-block w-full h-1 h-full transform border-t-2 border-red"
+                                class="absolute inset-0 inline-block w-full h-1 h-full transform border-t-2 border-red-bg"
                                 x-transition:enter="transition ease-out duration-300"
                                 x-transition:enter-start="-translate-x-full" x-transition:enter-end="translate-x-0"
                                 x-transition:leave="transition ease-out duration-300"
@@ -176,7 +175,7 @@
                     @else
                              x-data="{ hover: false }" @endif
                             @mouseenter="hover = true" @mouseleave="hover = false"
-                            class="relative inline-block mb-1 ml-5 text-base font-bold text-gray-200 uppercase transition duration-150 ease hover:text-white">
+                            class="relative inline-block mb-1 ml-5 text-2xl montserrat tracking-wide text-gray-200 uppercase transition duration-150 ease hover:text-white">
                             <span class="block">{{ \Auth::user()->name }}</span>
                             <span class="absolute bottom-0 left-0 inline-block w-full h-1 -mb-1 overflow-hidden">
                                 <span
@@ -184,7 +183,7 @@
                             </span>
                             <span class="absolute bottom-0 left-0 inline-block w-full h-1 -mb-1 overflow-hidden">
                                 <span x-show="hover"
-                                    class="absolute inset-0 inline-block w-full h-1 h-full transform border-t-2 border-red"
+                                    class="absolute inset-0 inline-block w-full h-1 h-full transform border-t-2 border-red-bg"
                                     x-transition:enter="transition ease-out duration-300"
                                     x-transition:enter-start="-translate-x-full" x-transition:enter-end="translate-x-0"
                                     x-transition:leave="transition ease-out duration-300"
@@ -194,37 +193,29 @@
                         </a>
                         @if (\Auth::user()->players)
                             @if (\Auth::user()->players->group == 'admin' || \Auth::user()->players->group == 'superadmin')
-                                <a href="{{ route('dashboard-index') }} " target='_blank'
-                                    class="inline-flex items-center justify-center px-4 py-2 text-base font-medium leading-6 text-white whitespace-no-wrap border rounded-md shadow-sm border-red-dark bg-red focus:ring-offset-gray-900 hover:bg-red-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-dark">
-                                    Admin
-                                </a>
+                            
+                                <a href="{{ route('dashboard-index') }}" target="_blank" class="relative inline-block px-6 py-2 font-medium group">
+                                    <span class="absolute inset-0 w-full h-full transition duration-200 ease-out transform translate-x-1 translate-y-1 bg-red-bg group-hover:-translate-x-0 group-hover:-translate-y-0"></span>
+                                    <span class="absolute inset-0 w-full h-full bg-yellow-bg border-2 border-red-bg group-hover:bg-red-bg"></span>
+                                    <span class="relative text-2xl text-black montserrat tracking-wider group-hover:text-white">Admin</span>
+                                    </a>
+
                             @endif
                             @if (\Auth::user()->canSeeDashboard() && !(\Auth::user()->players->group == 'admin' || \Auth::user()->players->group == 'superadmin'))
+                            
                                 <a href="{{ route('dashboard-formbuilder::forms.forms.index') }} " target='_blank'
-                                    class="inline-flex items-center justify-center px-4 py-2 text-base font-medium leading-6 text-white whitespace-no-wrap border rounded-md shadow-sm border-red-dark bg-red focus:ring-offset-gray-900 hover:bg-red-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-dark">
+                                    class="inline-flex items-center justify-center px-4 py-2 text-base font-medium leading-6 text-white whitespace-no-wrap border rounded-md shadow-sm border-red-bg-dark bg-red focus:ring-offset-gray-900 hover:bg-red-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-dark">
                                     Admin
                                 </a>
                             @endif
                         @endif
                     @else
-                        <a href="{{ route('login') }}" x-data="{ hover: false }" @mouseenter="hover = true"
-                            @mouseleave="hover = false"
-                            class="relative inline-block ml-5 text-base font-bold text-gray-200 uppercase transition duration-150 ease hover:text-white">
-                            <span class="block">Se connecter</span>
-                            <span class="absolute bottom-0 left-0 inline-block w-full h-1 -mb-1 overflow-hidden">
-                                <span
-                                    class="absolute inset-0 inline-block w-full h-1 h-full transform translate-x-0 border-t-2 border-gray-100"></span>
-                            </span>
-                            <span class="absolute bottom-0 left-0 inline-block w-full h-1 -mb-1 overflow-hidden">
-                                <span x-show="hover"
-                                    class="absolute inset-0 inline-block w-full h-1 h-full transform border-t-2 border-red"
-                                    x-transition:enter="transition ease-out duration-300"
-                                    x-transition:enter-start="-translate-x-full" x-transition:enter-end="translate-x-0"
-                                    x-transition:leave="transition ease-out duration-300"
-                                    x-transition:leave-start="translate-x-0" x-transition:leave-end="translate-x-full"
-                                    style="display: none;"></span>
-                            </span>
-                        </a>
+                        
+                        <a href="{{ route('login') }}" class="relative inline-block px-6 py-2 font-medium group">
+                            <span class="absolute inset-0 w-full h-full transition duration-200 ease-out transform translate-x-1 translate-y-1 bg-red-bg group-hover:-translate-x-0 group-hover:-translate-y-0"></span>
+                            <span class="absolute inset-0 w-full h-full bg-yellow-bg border-2 border-red-bg group-hover:bg-red-bg"></span>
+                            <span class="relative text-2xl text-black montserrat tracking-wider group-hover:text-white">Se Connecter</span>
+                            </a>
                     @endauth
                 </nav>
                 <div class="lg:hidden">
@@ -340,7 +331,7 @@
         </div>
     </section>
     @if (session('error'))
-        <div class="absolute top-0 right-0 px-4 py-3 mt-16 mr-8 text-red-900 bg-white border-t-4 border-red-500 shadow-md font-opensans rounded-2xl-b"
+        <div class="absolute top-0 right-0 px-4 py-3 mt-16 mr-8 text-red-900 bg-white border-t-4 border-red-bg-500 shadow-md font-opensans rounded-2xl-b"
             onclick="this.remove()" id="alert-error" role="alert">
             <div class="flex">
                 <div class="py-1">
@@ -377,7 +368,7 @@
     @endif
 
     @if ($errors->any())
-        <div class="absolute top-0 right-0 px-4 py-3 mt-16 mr-8 text-red-900 bg-white border-t-4 border-red-500 shadow-md rounded-2xl-b"
+        <div class="absolute top-0 right-0 px-4 py-3 mt-16 mr-8 text-red-900 bg-white border-t-4 border-red-bg-500 shadow-md rounded-2xl-b"
             onclick="this.remove()" id="alert-error" role="alert">
             <div class="flex">
                 <div class="py-1">

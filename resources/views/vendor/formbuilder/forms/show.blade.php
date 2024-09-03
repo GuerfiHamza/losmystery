@@ -13,25 +13,25 @@
                         <div class="btn-toolbar float-md-right" role="toolbar">
                             <div class="btn-group" role="group">
                                
-                                <a href="{{ route('dashboard-formbuilder::forms.submissions.index', $form) }}" class="px-5 py-3 mr-3 font-medium leading-5 text-white transition-colors duration-150 bg-red-600 border border-transparent rounded-lg active:bg-red-600 hover:bg-red-700 focus:outline-none focus:shadow-outline-red">
+                                <a href="{{ route('dashboard-formbuilder::forms.submissions.index', $form) }}" class="px-5 py-3 mr-3 font-medium leading-5 text-white transition-colors duration-150 bg-blue-600 border border-transparent rounded-lg active:bg-blue-600 hover:bg-blue-700 focus:outline-none focus:shadow-outline-red">
                                     <i class="fa fa-th-list"></i> Soumissions
                                 </a> 
-                                <a href="{{ route('dashboard-formbuilder::forms.forms.edit', $form) }}" class="px-5 py-3 mr-3 font-medium leading-5 text-white transition-colors duration-150 bg-red-600 border border-transparent rounded-lg active:bg-red-600 hover:bg-red-700 focus:outline-none focus:shadow-outline-red">
+                                <a href="{{ route('dashboard-formbuilder::forms.forms.edit', $form) }}" class="px-5 py-3 mr-3 font-medium leading-5 text-white transition-colors duration-150 bg-blue-600 border border-transparent rounded-lg active:bg-blue-600 hover:bg-blue-700 focus:outline-none focus:shadow-outline-red">
                                     <i class="fa fa-edit"></i> Editer
                                 </a> 
-                                <a href="{{ route('dashboard-formbuilder::forms.forms.create') }}" class="px-5 py-3 font-medium leading-5 text-white transition-colors duration-150 bg-red-600 border border-transparent rounded-lg active:bg-red-600 hover:bg-red-700 focus:outline-none focus:shadow-outline-red">
+                                <a href="{{ route('dashboard-formbuilder::forms.forms.create') }}" class="px-5 py-3 font-medium leading-5 text-white transition-colors duration-150 bg-blue-600 border border-transparent rounded-lg active:bg-blue-600 hover:bg-blue-700 focus:outline-none focus:shadow-outline-red">
                                     <i class="fa fa-plus-circle"></i> Nouveau Formulaire
                                 </a>
                             </div>
                         </div>
                 </div>
 
-                <div class="card-body bg-gray-800 text-white px-5 py-3 rounded-md border border-red">
+                <div class="card-body bg-gray-800 text-white px-5 py-3 rounded-md border border-blue-500">
                     <div id="fb-render"></div>
                 </div>
             </div>
         </div>
-        <div class="bg-gray-800 text-white px-5 py-3 rounded-md border border-red mt-3">
+        <div class="bg-gray-800 text-white px-5 py-3 rounded-md border border-blue-500 mt-3">
             <div class="card rounded-0">
                 <div class="card-header">
                     <h5 class="card-title">

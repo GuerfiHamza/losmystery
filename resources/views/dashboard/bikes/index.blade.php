@@ -87,7 +87,7 @@
                     </tbody>
                 </table>
             </div>
-            {{-- {{ $bikes->links() }} --}}
+            {{ $bikes->links() }}
         </div>
     </div>
     <div x-show="isModalOpen" x-transition:enter="transition ease-out duration-150" x-transition:enter-start="opacity-0"

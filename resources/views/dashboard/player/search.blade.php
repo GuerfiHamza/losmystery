@@ -21,7 +21,7 @@
                         <tr
                             class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
                             <th class="px-4 py-3">Nom / ID</th>
-                            <th class="px-4 py-3">Argent liquide</th>
+                            <th class="px-4 py-3">Job</th>
                             <th class="px-4 py-3">Argent en banque</th>
                             <th class="px-4 py-3">Informations</th>
                         </tr>
@@ -38,16 +38,17 @@
                                             <p class="font-semibold">{{ $player->name }}
                                             </p>
                                             <p class="text-xs text-gray-600 dark:text-gray-400">
-                                                SteamHex : {{ $player->license }}
+                                                SteamHex : {{ $player->identifier }}
                                             </p></a>
                                         </div>
                                     </div>
                                 </td>
                                 <td class="px-4 py-3 text-sm">
-                                    {{ number_format($player->get_Money(), 2) }}$
+                                    {{ $player->job }}
                                 </td>
                                 <td class="px-4 py-3 text-sm">
-                                    {{ number_format($player->get_Bank(), 2) }}$
+                                    {{ $player->org }}
+
                                 </td>
                                 <td class="px-4 py-3">
                                     {{ $player->lastconnexion }}

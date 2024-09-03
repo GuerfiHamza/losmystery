@@ -39,7 +39,16 @@ class RenderFormController extends Controller
 
         $pageTitle = "{$form->name}";
 
+        if (\restray\FormBuilder\Models\Submission::where('user_id', \Auth::id())->count() > 0)
+        {
+            \Alert::toast('Vous avez déjà soumis ce formulaire !', 'error');
+            return redirect()->route('profile');
+        }
+        else
+        {
         return view('formbuilder::render.index', compact('form', 'pageTitle'));
+        }
+        
     }
 
     /**
@@ -87,7 +96,7 @@ class RenderFormController extends Controller
                     ]
                 ],
             ]);
-            return redirect()->back();
+            return redirect()->route('profile');
 
         } catch (Throwable $e) {
             info($e);

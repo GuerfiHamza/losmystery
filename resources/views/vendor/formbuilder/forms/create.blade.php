@@ -15,13 +15,13 @@
             <form action="{{ route('dashboard-formbuilder::forms.forms.store') }}" method="POST" id="createFormForm">
                 @csrf
 
-                <div class="bg-gray-800 text-white py-8 px-4 border-red">
+                <div class="bg-gray-800 text-white py-8 px-4 border-blue-500">
                     <div class="row">
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label for="name" class="col-form-label">Nom</label>
 
-                                <input id="name" type="text" class="mb-2 dark:bg-gray-800 dark:text-white border rounded-md border-red px-3 py-1 {{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus placeholder="Enter Form Name">
+                                <input id="name" type="text" class="mb-2 dark:bg-gray-800 dark:text-white border rounded-md border-blue-500 px-3 py-1 {{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus placeholder="Enter Form Name">
 
                                 @if ($errors->has('name'))
                                     <span class="invalid-feedback" role="alert">
@@ -34,7 +34,7 @@
                             <div class="form-group">
                                 <label for="visibility" class="col-form-label">Visibilité</label>
 
-                                <select name="visibility" id="visibility" class="mb-2 dark:bg-gray-800 dark:text-white border rounded-md border-red px-3 py-1" required="required">
+                                <select name="visibility" id="visibility" class="mb-2 dark:bg-gray-800 dark:text-white border rounded-md border-blue-500 px-3 py-1" required="required">
                                     <option value="">Select Form Visibility</option>
                                     @foreach(restray\FormBuilder\Models\Form::$visibility_options as $option)
                                         <option value="{{ $option['id'] }}">{{ $option['name'] }}</option>
@@ -54,7 +54,7 @@
                                     Allow Submission Edit
                                 </label>
 
-                                <select name="allows_edit" id="allows_edit" class="mb-2 dark:bg-gray-800 dark:text-white border rounded-md border-red px-3 py-1" required="required">
+                                <select name="allows_edit" id="allows_edit" class="mb-2 dark:bg-gray-800 dark:text-white border rounded-md border-blue-500 px-3 py-1" required="required">
                                     <option value="0">Non (Valeurs non éditables)</option>
                                     <option value="1">Oui (Autoriser les utilisateurs a pouvoir éditer leurs données)</option>
                                 </select>
@@ -93,10 +93,10 @@
                         </div>
                     </div>
                     <div class="card-footer flex justify-between mt-5 items-center" id="fb-editor-footer" style="display: none;">
-                        <button type="button" class="px-5 py-3 font-medium leading-5 text-white transition-colors duration-150 bg-red-600 border border-transparent rounded-lg active:bg-red-600 hover:bg-red-700 focus:outline-none focus:shadow-outline-red fb-clear-btn">
+                        <button type="button" class="px-5 py-3 font-medium leading-5 text-white transition-colors duration-150 bg-blue-600 border border-transparent rounded-lg active:bg-blue-600 hover:bg-blue-700 focus:outline-none focus:shadow-outline-red fb-clear-btn">
                             <i class="fa fa-remove"></i> Nettoyer le formulaire
                         </button> 
-                        <button type="button" class="px-5 py-3 font-medium leading-5 text-white transition-colors duration-150 bg-red-600 border border-transparent rounded-lg active:bg-red-600 hover:bg-red-700 focus:outline-none focus:shadow-outline-red fb-save-btn">
+                        <button type="button" class="px-5 py-3 font-medium leading-5 text-white transition-colors duration-150 bg-blue-600 border border-transparent rounded-lg active:bg-blue-600 hover:bg-blue-700 focus:outline-none focus:shadow-outline-red fb-save-btn">
                             <i class="fa fa-save"></i> Envoyer &amp; Sauvegarder le formulaire
                         </button>
                     </div>
