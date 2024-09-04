@@ -280,7 +280,6 @@ class Player extends Model
     public function getMoney()
     {
         $money = \DB::connection('fivem')->select('SELECT `accounts` FROM `users` WHERE `steamid`="' . $this->steamid . '"');
-        
         $money = json_decode($money[0]->accounts);
         
         return $money->money;
